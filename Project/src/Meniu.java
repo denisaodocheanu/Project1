@@ -1,3 +1,6 @@
+import App.Fastfood;
+
+import javax.swing.*;
 import java.util.Scanner;
 import java.util.Objects;
 
@@ -5,6 +8,11 @@ public class Meniu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Fastfood ff = new Fastfood();
+
+        MyFrame myFrame = new MyFrame();
+
+
+
         int option,option2,cantitate;
         String input = "0",nume;
         System.out.println("Buna ziua! Ce doriti sa comandati?");
