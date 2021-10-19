@@ -35,6 +35,16 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton Suma;
     JButton[] StergereProduse;
 
+    JButton delPui;
+    JButton delVita;
+    JButton delMixt;
+    JButton delTon;
+    JButton delCaeser;
+    JButton delCola;
+    JButton delSprite;
+    JButton delFanta;
+
+
 
     //JLabel label;
 
@@ -155,6 +165,62 @@ public class MyFrame extends JFrame implements ActionListener {
         Finalizare.setText("Finalizare");
 
 
+        delPui = new JButton();
+        delPui.setBounds(50,20,250,40);
+        delPui.addActionListener(this);
+        delPui.setText("Scoateti Pui");
+        delPui.setVisible(false);
+        delPui.setEnabled(false);
+
+        delVita = new JButton();
+        delVita.setBounds(50,70,250,40);
+        delVita.addActionListener(this);
+        delVita.setText("Scoateti Vita");
+        delVita.setVisible(false);
+        delVita.setEnabled(false);
+
+        delMixt= new JButton();
+        delMixt.setBounds(50,120,250,40);
+        delMixt.addActionListener(this);
+        delMixt.setText("Scoateti Mixt");
+        delMixt.setVisible(false);
+        delMixt.setEnabled(false);
+
+        delTon= new JButton();
+        delTon.setBounds(50,170,250,40);
+        delTon.addActionListener(this);
+        delTon.setText("Scoateti Ton");
+        delTon.setVisible(false);
+        delTon.setEnabled(false);
+
+        delCaeser= new JButton();
+        delCaeser.setBounds(50,220,250,40);
+        delCaeser.addActionListener(this);
+        delCaeser.setText("Scoateti Caesar");
+        delCaeser.setVisible(false);
+        delCaeser.setEnabled(false);
+
+        delCola= new JButton();
+        delCola.setBounds(50,270,250,40);
+        delCola.addActionListener(this);
+        delCola.setText("Scoateti Cola");
+        delCola.setVisible(false);
+        delCola.setEnabled(false);
+
+        delSprite= new JButton();
+        delSprite.setBounds(50,320,250,40);
+        delSprite.addActionListener(this);
+        delSprite.setText("Scoateti Sprite");
+        delSprite.setVisible(false);
+        delSprite.setEnabled(false);
+
+        delFanta= new JButton();
+        delFanta.setBounds(50,370,250,40);
+        delFanta.addActionListener(this);
+        delFanta.setText("Scoateti Fanta");
+        delFanta.setVisible(false);
+        delFanta.setEnabled(false);
+
 
 
 
@@ -179,9 +245,14 @@ public class MyFrame extends JFrame implements ActionListener {
         this.add(Sprite);
         this.add(Fanta);
         this.add(Suma);
-        for (int i = 0; i < 100; i++) {
-            this.add(StergereProduse[i]);
-        }
+        this.add(delCaeser);
+        this.add(delMixt);
+        this.add(delPui);
+        this.add(delSprite);
+        this.add(delCola);
+        this.add(delFanta);
+        this.add(delTon);
+        this.add(delVita);
 
         /*
         this.add(panel1, BorderLayout.WEST);
@@ -230,14 +301,26 @@ public class MyFrame extends JFrame implements ActionListener {
         Fanta.setEnabled(bool);
     }
 
-    public void StergereGenButon(int i, String nume_produs){
-        StergereProduse[i] = new JButton();
-        StergereProduse[i].setBounds(50,20*i,250,20);
-        StergereProduse[i].addActionListener(this);
-        StergereProduse[i].setText(nume_produs);
-        Fanta.setVisible(false);
-    }
 
+    public void delMeniu(boolean bool){
+        delFanta.setVisible(bool);
+        delFanta.setEnabled(bool);
+        delCola.setVisible(bool);
+        delCola.setEnabled(bool);
+        delSprite.setVisible(bool);
+        delSprite.setEnabled(bool);
+        delVita.setVisible(bool);
+        delVita.setEnabled(bool);
+        delPui.setVisible(bool);
+        delPui.setEnabled(bool);
+        delMixt.setVisible(bool);
+        delMixt.setEnabled(bool);
+        delTon.setVisible(bool);
+        delTon.setEnabled(bool);
+        delCaeser.setVisible(bool);
+        delCaeser.setEnabled(bool);
+
+    }
 
 
     @Override
@@ -311,25 +394,59 @@ public class MyFrame extends JFrame implements ActionListener {
             System.out.println(ff.cs.getSold());
             int answer = JOptionPane.showConfirmDialog(null, "Suma este: " + ff.cs.getSold() + "\n Doriti sa continuati?", "Verificare suma", JOptionPane.YES_NO_OPTION);
             if (answer == 1) System.exit(0);
-
-
-
-        }
-        if(e.getSource() == StergereProduse[0]){
-
-        }
-        if(e.getSource() == StergereProduse[1]){
-
         }
         if(e.getSource() == Stergere){
             System.out.println("Stergere");
-            for (int i = 0; i < 1; i++) {
-                StergereProduse[i].setVisible(true);
-            }
+            MainMeniu(false);
+            delMeniu(true);
         }
+        if(e.getSource() == delPui){
+            ff.cs.DeleteElemcos(ff.alegereprodus(1), 1,1);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delVita){
+            ff.cs.DeleteElemcos(ff.alegereprodus(2), 1,2);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delMixt){
+            ff.cs.DeleteElemcos(ff.alegereprodus(3), 1,3);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delTon){
+            ff.cs.DeleteElemcos(ff.alegereprodus(4), 1,4);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delCaeser){
+            ff.cs.DeleteElemcos(ff.alegereprodus(5), 1,5);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delCola){
+            ff.cs.DeleteElemcos(ff.alegereprodus(6), 1,6);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delSprite){
+            ff.cs.DeleteElemcos(ff.alegereprodus(7), 1,7);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+        if(e.getSource() == delFanta){
+            ff.cs.DeleteElemcos(ff.alegereprodus(8), 1,8);
+            MainMeniu(true);
+            delMeniu(false);
+        }
+
         if(e.getSource() == Finalizare){
             System.out.println("Finalizare");
+            int answer = JOptionPane.showConfirmDialog(null, "Suma este: " + ff.cs.getSold() + "\n Doriti sa finalizati comanda?", "Finalizare comanda", JOptionPane.YES_NO_OPTION);
+            if (answer == 0) System.exit(0);
         }
+
 
     }
 }
